@@ -1,0 +1,38 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+        <!--database connection-->
+        <property name="connection.url">jdbc:mysql://192.168.0.101:3306/hibernate</property>
+        <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+        <property name="connection.username">root</property>
+        <property name="connection.password">root</property>
+
+        <!--数据库方言-->
+        <property name="hibernate.dialect">org.hibernate.dialect.MySQL5Dialect</property>
+
+        <!--c3p0-->
+        <property name="hibernate.connection.provider_class">org.hibernate.c3p0.internal.C3P0ConnectionProvider
+        </property>
+
+        <!--
+            hibernate 当前session上下文
+        thread 多实例的每个线程具有自己的session，其实现其线程隔离，ThreadLocal
+        jta 分布式事务
+        spring
+        -->
+        <property name="hibernate.current_session_context_class"></property>
+
+        <!--自动建表-->
+        <property name="hbm2ddl.auto">update</property>
+
+        <!--sql显示与格式化-->
+        <property name="hibernate.show_sql">true</property>
+        <property name="hibernate.format_sql">true</property>
+
+        <!--加入实体映射文件hbm.xml-->
+        <mapping resource="hibernate/config/hbm/Student.hbm.xml"/>
+    </session-factory>
+</hibernate-configuration>
