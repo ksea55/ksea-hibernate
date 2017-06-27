@@ -4,6 +4,7 @@ package com.ksea.hibernate.bo;
  * Created by mexican on 2017/6/26.
  */
 public class Student {
+    private String uuid;
     private Integer id;
     private String name;
     private Integer age;
@@ -40,6 +41,14 @@ public class Student {
 
     public void setScore(Integer score) {
         this.score = score;
+    }
+
+    public String getUuid() {
+        return uuid;
+    }
+
+    public void setUuid(String uuid) {
+        this.uuid = uuid;
     }
 
     public Student() {
