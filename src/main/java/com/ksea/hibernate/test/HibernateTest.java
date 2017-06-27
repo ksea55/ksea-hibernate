@@ -26,7 +26,6 @@ public class HibernateTest {
         //开启事务
         Transaction transaction = session.beginTransaction();
         try {
-            transaction.begin();
             Student student = new Student("jacky", 21, 100);
             session.save(student);
             transaction.commit();
