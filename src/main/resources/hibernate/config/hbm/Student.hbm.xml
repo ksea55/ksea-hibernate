@@ -4,7 +4,6 @@
         "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping package="com.ksea.hibernate.bo">
     <class name="com.ksea.hibernate.bo.Student" table="k_student">
-        <id name="uuid" column="uuid">
 
 
 
@@ -15,10 +14,24 @@
 
 
 
-            <!--uuid全球唯一性，能够保证数据的唯一，一般用于hibernate的分布式id,并且在用uuid其主键id的类型必须是String-->
+
+
+
+
+
+
+
+
+
+
+        <!--uuid全球唯一性，能够保证数据的唯一，一般用于hibernate的分布式id,并且在用uuid其主键id的类型必须是String-->
+        <!--<id name="uuid" column="uuid">
             <generator class="uuid"/>
+        </id>-->
 
-            <!-- <generator class="native"/>-->
+
+        <id name="id">
+            <generator class="native"/>
         </id>
 
         <property name="name" column="s_name"/>
