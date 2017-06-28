@@ -35,5 +35,7 @@
 
         <!--加入实体映射文件hbm.xml-->
         <mapping resource="hibernate/config/hbm/Student.hbm.xml"/>
+        <mapping resource="hibernate/config/hbm/Minister.hbm.xml"/>
+        <mapping resource="hibernate/config/hbm/Country.hbm.xml"/>
     </session-factory>
 </hibernate-configuration>

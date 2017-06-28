@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.ksea.hibernate.relevance.Country">
+        <id name="cid">
+            <generator class="native"/>
+        </id>
+        <property name="name"/>
+
+        <!--
+        one-to-many
+        一对多关联关系 一个Country可以有多个Minister
+        -->
+        <set name="ministers" cascade="save-update">
+            <!--关联Id-->
+            <key column="countryId"/>
+            <!--指明关联关系是:一对多-->
+            <one-to-many class="com.ksea.hibernate.relevance.Minister"/>
+        </set>
+
+    </class>
+</hibernate-mapping>
