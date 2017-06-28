@@ -7,8 +7,11 @@ import org.hibernate.Transaction;
 import org.hibernate.boot.MetadataSources;
 import org.hibernate.boot.registry.StandardServiceRegistry;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
+import org.hibernate.query.Query;
 import org.junit.Before;
 import org.junit.Test;
+
+import java.util.List;
 
 /**
  * Created by mexican on 2017/6/27.
@@ -37,4 +40,12 @@ public class HibernateHqlQuery {
         transaction.commit();
     }
 
+
+    @Test
+    public  void  test1(){
+        Transaction transaction = session.beginTransaction();
+        List list = session.createQuery("from Student").list();
+        System.out.println(list);
+        transaction.commit();
+    }
 }
