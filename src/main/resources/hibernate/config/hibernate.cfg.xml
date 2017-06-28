@@ -39,5 +39,10 @@
         <mapping resource="hibernate/config/hbm/Country.hbm.xml"/>
         <!--自关联文件映射-->
         <mapping resource="hibernate/config/hbm/NewsAct.hbm.xml"/>
+        <!--many-to-many-->
+        <mapping resource="hibernate/config/hbm/Teacher.hbm.xml"/>
+        <mapping resource="hibernate/config/hbm/Course.hbm.xml"/>
+
+
     </session-factory>
 </hibernate-configuration>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.ksea.hibernate.relevance.Teacher">
+        <id name="id">
+            <generator class="native"/>
+        </id>
+        <property name="name"/>
+        <!--指明中间表 table="teacher_course"-->
+        <set name="courses" cascade="save-update" table="teacher_course">
+            <key column="teacherId"/><!--这里的key，就是当前类指明的外键关联-->
+            <many-to-many class="com.ksea.hibernate.relevance.Course" column="courseId"/> <!--这里需指明关联表在中间表中的列名称-->
+        </set>
+
+
+    </class>
+</hibernate-mapping>
