@@ -42,10 +42,14 @@ public class HibernateHqlQuery {
 
 
     @Test
-    public  void  test1(){
+    public void test1() {
         Transaction transaction = session.beginTransaction();
         List list = session.createQuery("from Student").list();
         System.out.println(list);
+
+        List<Student> students = session.createQuery("from Student", Student.class).list();
+        System.out.println(students);
+
         transaction.commit();
     }
 }
