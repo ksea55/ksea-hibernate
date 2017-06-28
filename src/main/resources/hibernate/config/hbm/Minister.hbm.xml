@@ -8,6 +8,7 @@
             <generator class="native"/>
         </id>
         <property name="name"/>
-
+        <!--many-to-one 多方维护关联关系-->
+        <many-to-one name="country" column="countryId" class="com.ksea.hibernate.relevance.Country" cascade="save-update"/>
     </class>
 </hibernate-mapping>

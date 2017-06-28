@@ -1,0 +1,21 @@
+
+one-to-many
+一方在维护多方的关系的时候，底层执行先执行多方的save，在执行一方的save，最后update多方关联关系
+如：
+
+Hibernate:  insert into Country (name) values(?)
+Hibernate:  insert into Minister(name) values(?)
+Hibernate:  insert into Minister(name) values(?)
+Hibernate:  update Minister set countryId=? where mid=?
+Hibernate:  update Minister set countryId=? where mid=?     此处就在维护关联关系
+
+
+
+many-to-one
+多方在维护关联关系的情况下，都只执行save
+
+Hibernate:  insert  into Country(name) values(?)
+Hibernate:  insert  into Minister(name, countryId) values(?, ?)
+Hibernate:  insert  into Minister(name, countryId) values(?, ?)
+
+

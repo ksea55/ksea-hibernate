@@ -8,11 +8,22 @@ public class Minister {
     private Integer mid;
     private String name;
 
+    private Country country;
+
+
     public Minister() {
     }
 
     public Minister(String name) {
         this.name = name;
+    }
+
+    public Country getCountry() {
+        return country;
+    }
+
+    public void setCountry(Country country) {
+        this.country = country;
     }
 
     public Integer getMid() {

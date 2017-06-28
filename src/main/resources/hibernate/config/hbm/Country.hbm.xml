@@ -12,8 +12,9 @@
         <!--
         one-to-many
         一对多关联关系 一个Country可以有多个Minister
+        inverse="true" 表示一方放弃对多方的关联关系，在执行one-to-many的save的时候，many方将不会插入一方的id 也就是没有关联关系了
         -->
-        <set name="ministers" cascade="save-update">
+        <set name="ministers" cascade="save-update" inverse="false">
             <!--关联Id-->
             <key column="countryId"/>
             <!--指明关联关系是:一对多-->
