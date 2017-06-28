@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.ksea.hibernate.relevance.NewsAct">
+        <id name="id">
+            <generator class="native"/>
+        </id>
+        <property name="name"/>
+        <property name="content"/>
+
+        <!--one-to-many 一对多子关联-->
+        <set name="childNewActs" cascade="save-update">
+            <key column="pid"/>
+            <one-to-many class="com.ksea.hibernate.relevance.NewsAct"/>
+        </set>
+
+        <!--many-to-one 多对一自关联 与上面就形成了双向关联-->
+        <many-to-one name="parentNewAct" class="com.ksea.hibernate.relevance.NewsAct" column="pid" cascade="save-update"/>
+    </class>
+</hibernate-mapping>
