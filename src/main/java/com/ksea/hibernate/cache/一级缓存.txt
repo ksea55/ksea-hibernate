@@ -1,0 +1,23 @@
+什么是一级缓存？
+
+  一级缓存，就是Session缓存，其实就是内存中的一块空间，在这个内存空间存放了相互关联的java对象。
+  Session缓存是事务级别缓存，伴随这事务的开启而开启，伴随着事务的关闭而关闭
+  Session缓存是由Hibernate进行管理
+  Session缓存，是Hibernate内置的，是不能被程序员取消的，即只要使用Hibernate就一定要使用，更确切地说，就
+  当程序在调用Session的load()方法，get()方法，save()方法，saveOrUpdate()方法，update()方法或者Query接口方法时，Hibernate会对实体对象进行缓存
+  当通过get()或者load()方法查询实体对象时，Hibernate会首先到缓存中查询，在找不到实体对象的情况下，Hibernate才会发出SQL语句到DB中查询，从而提高了Hibernate的使用效率
+
+
+  一级缓存管理相关方法
+     与一级缓存管理相关的方法
+        evict(Object o) 从Session中删除指定对象
+        clear()无参数，将Session缓存情况
+        contains(Object o) 判断指定对象是否在Session中存在
+        flush()无参数 将Session中对象状态同步到DB中
+
+
+  一级缓存的存在性证明
+     在同一个Session中连接两次查询同一个对象，Hibernate只发出了一条select语句
+     对查出的2个对象属性值进行修改，Hibernate只发出了一条update
+     注意 在运行这个例子之前，首先要插入DB中一条记录，即save一个对象
+     以便对该记录进行查询
