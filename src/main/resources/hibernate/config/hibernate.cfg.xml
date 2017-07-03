@@ -33,6 +33,11 @@
         <property name="hibernate.show_sql">true</property>
         <property name="hibernate.format_sql">true</property>
 
+        <!--Hibernate中解决读并发
+        其中mysql 是4 可重复读
+           oracle 是2 读取已提交
+        -->
+        <property name="hibernate.connection.isolation">4</property>
 
         <!--开启二级缓存-->
         <property name="hibernate.cache.use_second_level_cache">true</property>
