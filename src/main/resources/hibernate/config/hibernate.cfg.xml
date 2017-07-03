@@ -37,12 +37,13 @@
         其中mysql 是4 可重复读
            oracle 是2 读取已提交
         -->
-        <property name="hibernate.connection.isolation"> 4 </property>
+        <property name="hibernate.connection.isolation">4</property>
 
         <!--开启二级缓存-->
         <property name="hibernate.cache.use_second_level_cache">true</property>
         <!--注册二级缓存区域工厂-->
-        <property name="hibernate.cache.region.factory_class">org.hibernate.cache.ehcache.EhCacheRegionFactory</property>
+        <property name="hibernate.cache.region.factory_class">org.hibernate.cache.ehcache.EhCacheRegionFactory
+        </property>
         <!--
             在默认情况下 使用Query查询，也就是session.createQuery(sql)方法来进行查询
             它是不会从缓存中查询的，我们必须配置开启Query查询缓存，这样就可以从缓存中查询
@@ -63,6 +64,12 @@
 
         <!--用于测试乐观锁的实体-->
         <mapping resource="hibernate/config/hbm/UserInfo.hbm.xml"/>
+
+        <!---用于悲观锁的实体-->
+
+        <mapping resource="hibernate/config/hbm/Person.hbm.xml"/>
+
+
         <!--指定缓存内容 这里以Country与Minister 为例子  class缓存 缓存的是class的详情信息-->
         <class-cache class="com.ksea.hibernate.relevance.Country" usage="read-only"/>
         <class-cache class="com.ksea.hibernate.relevance.Minister" usage="read-only"/>
