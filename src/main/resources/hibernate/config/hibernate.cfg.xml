@@ -61,6 +61,8 @@
         <mapping resource="hibernate/config/hbm/Course.hbm.xml"/>
 
 
+        <!--用于测试乐观锁的实体-->
+        <mapping resource="hibernate/config/hbm/UserInfo.hbm.xml"/>
         <!--指定缓存内容 这里以Country与Minister 为例子  class缓存 缓存的是class的详情信息-->
         <class-cache class="com.ksea.hibernate.relevance.Country" usage="read-only"/>
         <class-cache class="com.ksea.hibernate.relevance.Minister" usage="read-only"/>
