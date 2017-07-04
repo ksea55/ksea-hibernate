@@ -48,11 +48,7 @@
             <version>2.6.11</version>
         </dependency>
         <!--Hibernate config-->
-        <dependency>
-            <groupId>org.hibernate.javax.persistence</groupId>
-            <artifactId>hibernate-jpa-2.0-api</artifactId>
-            <version>1.0.1.Final</version>
-        </dependency>
+
 
         <dependency>
             <groupId>org.slf4j</groupId>
